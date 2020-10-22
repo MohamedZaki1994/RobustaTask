@@ -7,19 +7,21 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DashboardTableViewCell: UITableViewCell {
 
     @IBOutlet weak var repoName: UILabel!
     @IBOutlet weak var ownerName: UILabel!
-    
+    @IBOutlet weak var avatarImage: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    func downloadImage(imageURL: String) {
+        let url = URL(string: imageURL)
+        avatarImage.kf.setImage(with: url)
     }
     
 }

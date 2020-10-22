@@ -52,6 +52,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         }
         dashboardCell.repoName.text = dataModel?[indexPath.row].name
         dashboardCell.ownerName.text = dataModel?[indexPath.row].owner.onwerName
+        dashboardCell.downloadImage(imageURL: dataModel?[indexPath.row].owner.avatarImageURL ?? "")
         return dashboardCell
 
     }
