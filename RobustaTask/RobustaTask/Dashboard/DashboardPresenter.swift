@@ -9,20 +9,21 @@
 import Foundation
 
 class DashboardPresenter {
-
+    
     var delegate: DashboardDelegate
     init(viewController: DashboardDelegate) {
         delegate = viewController
     }
-
+    
     let request = RequestHandler()
-
+    
     func fetchDataService() {
-
-           request.fetchRequest { [weak self] (model) in
-               print("Cool")
-               let data = model as! [RepositoryModel]
+        delegate.isLoading(flag: true)
+        request.fetchRequest { [weak self] (model) in
+            let data = model as! [RepositoryModel]
+            
+            self?.delegate.isLoading(flag: false)
             self?.delegate.fillUIWithData(data: data)
-           }
-       }
+        }
+    }
 }
