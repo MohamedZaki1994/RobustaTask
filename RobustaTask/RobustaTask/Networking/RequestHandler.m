@@ -10,8 +10,7 @@
 
 @implementation RequestHandler
 
-- (void) fetchRequest:(void (^)(void))completion {
-     NSLog(@"dsa");
+- (void) fetchRequest:(void (^)(NSArray*))completion {
     NSURL *URL = [NSURL URLWithString:@"https://api.github.com/repositories"];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
 
@@ -23,10 +22,14 @@
         NSMutableArray *repos = [NSMutableArray new];
         for (NSDictionary *item in jsonDict) {
             RepositoryModel *model = [RepositoryModel new];
+            OwnerModel *owner = [OwnerModel new];
             model.name = item[@"name"];
+            model.owner = owner;
+            model.owner.onwerName = item[@"owner"][@"login"];
+            model.owner.avatarImageURL = item[@"owner"][@"avatar_url"];
             [repos addObject:model];
         }
-        completion();
+        completion(repos);
         }];
 
     [task resume];
