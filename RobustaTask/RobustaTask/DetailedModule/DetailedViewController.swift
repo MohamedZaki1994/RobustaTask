@@ -29,8 +29,10 @@ class DetailedViewController: UIViewController {
 
 extension DetailedViewController: DetailedDelegate {
     func updateUI() {
-        repoName.text = presenter?.repo?.name
-        ownerName.text = presenter?.repo?.owner.onwerName
-        desc.text = presenter?.repo?.desc
+        DispatchQueue.main.async { [weak self] in
+            self?.repoName.text = self?.presenter?.repo?.name
+            self?.ownerName.text = self?.presenter?.repo?.owner.onwerName
+            self?.desc.text = self?.presenter?.repo?.desc
+        }
     }
 }

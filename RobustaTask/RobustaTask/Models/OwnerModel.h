@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface OwnerModel : NSObject
 @property (nonatomic , retain) NSString* onwerName;
 @property (nonatomic , retain) NSString* avatarImageURL;
+@property (nonatomic , retain) NSString* url;
 @end
 
 NS_ASSUME_NONNULL_END

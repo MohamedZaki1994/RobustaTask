@@ -18,6 +18,9 @@ class DetailedPresenter {
     }
 
     func fetchData() {
-        delegate?.updateUI()
+        let request = RequestHandler()
+//        request.fetchDetailsRequest(repo?.owner.url ?? "") { [weak self](_) in
+            self.delegate?.updateUI()
+//        }
     }
 }

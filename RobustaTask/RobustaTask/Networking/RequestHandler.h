@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RequestHandler : NSObject
 - (void)fetchRequest: (void (^)(NSArray*))completion;
+- (void) fetchDetailsRequest:(NSString*)url completion: (void (^)(NSDictionary*))completion;
 @end
 
 NS_ASSUME_NONNULL_END
