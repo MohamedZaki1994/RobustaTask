@@ -3,16 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35318E6B2542EF4F00947751 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35318E6A2542EF4F00947751 /* DetailedViewController.swift */; };
+		35318E6D2542EFCC00947751 /* DetailedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35318E6C2542EFCC00947751 /* DetailedPresenter.swift */; };
+		35318E702542F01600947751 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35318E6F2542F01600947751 /* NavigationManager.swift */; };
 		3536ADA42541E19E00E8165F /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3536ADA22541E19E00E8165F /* DashboardTableViewCell.swift */; };
 		3536ADA52541E19E00E8165F /* DashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3536ADA32541E19E00E8165F /* DashboardTableViewCell.xib */; };
 		3536ADA82541E60100E8165F /* OwnerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3536ADA72541E60100E8165F /* OwnerModel.m */; };
 		356F6AF52541C9CA00A31D39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 356F6AF42541C9CA00A31D39 /* AppDelegate.m */; };
 		356F6AF82541C9CA00A31D39 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 356F6AF72541C9CA00A31D39 /* SceneDelegate.m */; };
-		356F6AFB2541C9CA00A31D39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356F6AFA2541C9CA00A31D39 /* ViewController.m */; };
 		356F6AFE2541C9CA00A31D39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356F6AFC2541C9CA00A31D39 /* Main.storyboard */; };
 		356F6B012541C9CA00A31D39 /* RobustaTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 356F6AFF2541C9CA00A31D39 /* RobustaTask.xcdatamodeld */; };
 		356F6B032541C9CB00A31D39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 356F6B022541C9CB00A31D39 /* Assets.xcassets */; };
@@ -39,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		2636D263813B9FE28741DCCC /* Pods-RobustaTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RobustaTask.release.xcconfig"; path = "Target Support Files/Pods-RobustaTask/Pods-RobustaTask.release.xcconfig"; sourceTree = "<group>"; };
+		35318E6A2542EF4F00947751 /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		35318E6C2542EFCC00947751 /* DetailedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPresenter.swift; sourceTree = "<group>"; };
+		35318E6F2542F01600947751 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		3536ADA22541E19E00E8165F /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 		3536ADA32541E19E00E8165F /* DashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTableViewCell.xib; sourceTree = "<group>"; };
 		3536ADA62541E60100E8165F /* OwnerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwnerModel.h; sourceTree = "<group>"; };
@@ -48,8 +53,6 @@
 		356F6AF42541C9CA00A31D39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		356F6AF62541C9CA00A31D39 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		356F6AF72541C9CA00A31D39 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		356F6AF92541C9CA00A31D39 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		356F6AFA2541C9CA00A31D39 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		356F6AFD2541C9CA00A31D39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		356F6B002541C9CA00A31D39 /* RobustaTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RobustaTask.xcdatamodel; sourceTree = "<group>"; };
 		356F6B022541C9CB00A31D39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +96,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35318E692542EF2900947751 /* DetailedModule */ = {
+			isa = PBXGroup;
+			children = (
+				35318E6C2542EFCC00947751 /* DetailedPresenter.swift */,
+				35318E6A2542EF4F00947751 /* DetailedViewController.swift */,
+			);
+			path = DetailedModule;
+			sourceTree = "<group>";
+		};
+		35318E6E2542EFE200947751 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				356F6AF32541C9CA00A31D39 /* AppDelegate.h */,
+				356F6AF42541C9CA00A31D39 /* AppDelegate.m */,
+				356F6AF62541C9CA00A31D39 /* SceneDelegate.h */,
+				356F6AF72541C9CA00A31D39 /* SceneDelegate.m */,
+				356F6B022541C9CB00A31D39 /* Assets.xcassets */,
+				356F6B042541C9CB00A31D39 /* LaunchScreen.storyboard */,
+				356F6B082541C9CB00A31D39 /* main.m */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		3536ADA12541E16A00E8165F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,19 +155,13 @@
 				359C8D8F2541D68400F1624F /* Models */,
 				359C8D892541CB0F00F1624F /* Networking */,
 				359C8D932541D91E00F1624F /* Dashboard */,
+				35318E692542EF2900947751 /* DetailedModule */,
 				3536ADA12541E16A00E8165F /* Cells */,
-				356F6AF32541C9CA00A31D39 /* AppDelegate.h */,
-				356F6AF42541C9CA00A31D39 /* AppDelegate.m */,
-				356F6AF62541C9CA00A31D39 /* SceneDelegate.h */,
-				356F6AF72541C9CA00A31D39 /* SceneDelegate.m */,
-				356F6AF92541C9CA00A31D39 /* ViewController.h */,
-				356F6AFA2541C9CA00A31D39 /* ViewController.m */,
+				35318E6E2542EFE200947751 /* Supporting files */,
 				356F6AFC2541C9CA00A31D39 /* Main.storyboard */,
-				356F6B022541C9CB00A31D39 /* Assets.xcassets */,
-				356F6B042541C9CB00A31D39 /* LaunchScreen.storyboard */,
 				356F6B072541C9CB00A31D39 /* Info.plist */,
-				356F6B082541C9CB00A31D39 /* main.m */,
 				356F6AFF2541C9CA00A31D39 /* RobustaTask.xcdatamodeld */,
+				35318E6F2542F01600947751 /* NavigationManager.swift */,
 			);
 			path = RobustaTask;
 			sourceTree = "<group>";
@@ -192,7 +212,6 @@
 				526AE59DC9775DA0592DE04D /* Pods-RobustaTaskTests.debug.xcconfig */,
 				8AF67843430C36DFCF6974D6 /* Pods-RobustaTaskTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -376,7 +395,8 @@
 			files = (
 				356F6B092541C9CB00A31D39 /* main.m in Sources */,
 				356F6B1F2541C9F500A31D39 /* DashboardViewController.swift in Sources */,
-				356F6AFB2541C9CA00A31D39 /* ViewController.m in Sources */,
+				35318E6B2542EF4F00947751 /* DetailedViewController.swift in Sources */,
+				35318E6D2542EFCC00947751 /* DetailedPresenter.swift in Sources */,
 				356F6AF52541C9CA00A31D39 /* AppDelegate.m in Sources */,
 				3536ADA82541E60100E8165F /* OwnerModel.m in Sources */,
 				3536ADA42541E19E00E8165F /* DashboardTableViewCell.swift in Sources */,
@@ -384,6 +404,7 @@
 				359C8D952541DFE400F1624F /* DashboardPresenter.swift in Sources */,
 				359C8D922541D6A000F1624F /* RepositoryModel.m in Sources */,
 				356F6B012541C9CA00A31D39 /* RobustaTask.xcdatamodeld in Sources */,
+				35318E702542F01600947751 /* NavigationManager.swift in Sources */,
 				359C8D8C2541CB3200F1624F /* RequestHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

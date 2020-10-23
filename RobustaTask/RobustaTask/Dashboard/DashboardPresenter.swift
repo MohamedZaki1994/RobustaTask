@@ -42,4 +42,8 @@ class DashboardPresenter {
     func imageURLAtIndex(index: Int) -> String{
         return dataModel?[index].owner.avatarImageURL ?? ""
     }
+
+    func goToDetaieldScreen(with Index: Int) {
+        NavigationManager.navigateToDetailedScreen(data: dataModel?[Index])
+    }
 }

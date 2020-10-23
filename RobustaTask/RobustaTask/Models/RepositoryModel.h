@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RepositoryModel : NSObject
 
 @property (nonatomic , retain) NSString* name;
+@property (nonatomic , retain) NSString* desc;
 @property OwnerModel* owner;
 
 @end

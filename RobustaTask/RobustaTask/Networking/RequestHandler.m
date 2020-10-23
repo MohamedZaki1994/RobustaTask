@@ -24,6 +24,7 @@
             RepositoryModel *model = [RepositoryModel new];
             OwnerModel *owner = [OwnerModel new];
             model.name = item[@"name"];
+            model.desc = item[@"description"];
             model.owner = owner;
             model.owner.onwerName = item[@"owner"][@"login"];
             model.owner.avatarImageURL = item[@"owner"][@"avatar_url"];

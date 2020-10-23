@@ -70,4 +70,8 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
 
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.goToDetaieldScreen(with: indexPath.row)
+    }
+
 }
