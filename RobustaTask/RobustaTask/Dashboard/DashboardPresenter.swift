@@ -41,21 +41,20 @@ class DashboardPresenter {
             guard let dataModel = self.dataModel?[self.offset..<(self.offset+10)] else {return}
             self.offset += 10
             self.originalDataModel?.append(contentsOf: dataModel)
-            self.delegate.fillUIWithData()
+            self.delegate.reloadTableView()
             self.delegate.loadMore(flag: false)
         }
     }
 
     func fetchNames(at index: Int) {
-        if originalDataModel?[index].owner.onwerName.isEmpty ?? false {
-        guard let url = originalDataModel?[index].owner.url else {return}
-        request.fetchDetailsRequest(url) { [weak self](dic) in
-            self?.originalDataModel?[index].owner.onwerName = dic["name"] as? String ?? "Unkown"
-//            self?.delegate.fillUIWithData()
-            self?.delegate.reloadRow(index: index)
+        if originalDataModel?[index].owner.ownerName.isEmpty ?? false {
+            guard let url = originalDataModel?[index].owner.url else {return}
+            request.fetchDetailsRequest(url) { [weak self](model) in
+                self?.originalDataModel?[index].owner = model
+//                self?.originalDataModel?[index].owner.onwerName = dic["name"] as? String ?? "Unkown"
+                self?.delegate.reloadRow(index: index)
+            }
         }
-        }
-        
     }
 
     func numberOfDataSource() -> Int {
@@ -67,7 +66,11 @@ class DashboardPresenter {
     }
 
     func OwnerNameAtIndex(index: Int) -> String{
-        return originalDataModel?[index].owner.onwerName ?? ""
+
+        if let ownerName = originalDataModel?[index].owner.ownerName {
+            return ownerName
+        }
+        return "Unkown"
     }
 
     func imageURLAtIndex(index: Int) -> String{

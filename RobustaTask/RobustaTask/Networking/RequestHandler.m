@@ -26,13 +26,8 @@
             model.name = item[@"name"];
             model.desc = item[@"description"];
             model.owner = owner;
-//            model.owner.onwerName = item[@"owner"][@"login"];
-            model.owner.avatarImageURL = item[@"owner"][@"avatar_url"];
             model.owner.url = item[@"owner"][@"url"];
-//            [self fetchDetailsRequest:model.owner.url completion:^(NSDictionary * owner) {
-//                model.owner.onwerName = owner[@"name"];
-                [repos addObject:model];
-//            }];
+            [repos addObject:model];
         }
         completion(repos);
         }];
@@ -40,7 +35,7 @@
     [task resume];
 }
 
-- (void) fetchDetailsRequest:(NSString*)url completion: (void (^)(NSDictionary*))completion {
+- (void) fetchDetailsRequest:(NSString*)url completion: (void (^)(OwnerModel*))completion {
     NSURL *URL = [NSURL URLWithString:url];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
 
@@ -49,11 +44,21 @@
                                             completionHandler:
         ^(NSData *data, NSURLResponse *response, NSError *error) {
             NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-        NSLog(@"");
-//        NSMutableArray *repos = [NSMutableArray new];
-//        for (NSDictionary *item in jsonDict) {}
-//        completion(repos);
-        completion(jsonDict);
+        OwnerModel *owner = [OwnerModel new];
+
+        if ([jsonDict objectForKey:@"name"] == (id)[NSNull null]) {
+            owner.ownerName = @"Unkown";
+
+        } else {
+            owner.ownerName = jsonDict[@"name"];
+        }
+        owner.location = jsonDict[@"location"];
+        owner.createdDate = jsonDict[@"created_at"];
+        owner.followers = jsonDict[@"followers"];
+        owner.following = jsonDict[@"following"];
+        owner.numberOfRepos = jsonDict[@"public_repos"];
+        owner.avatarImageURL = jsonDict[@"avatar_url"];
+        completion(owner);
         }];
 
     [task resume];

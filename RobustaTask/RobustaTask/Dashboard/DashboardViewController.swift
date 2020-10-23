@@ -13,6 +13,7 @@ protocol DashboardDelegate {
     func fillUIWithData()
     func reloadRow(index: Int)
     func loadMore(flag: Bool)
+    func reloadTableView()
 }
 class DashboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -48,6 +49,14 @@ extension DashboardViewController: DashboardDelegate {
             self.tableView.reloadData()
             self.isLoadingMore = true
         }
+    }
+
+    func reloadTableView() {
+        UIView.setAnimationsEnabled(false)
+        self.tableView.beginUpdates()
+        self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: UITableView.RowAnimation.none)
+        self.tableView.endUpdates()
+        self.isLoadingMore = true
     }
 
     func isLoading(flag: Bool) {
@@ -87,8 +96,9 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         }
         dashboardCell.repoName.text = presenter?.repoNameAtIndex(index: indexPath.row)
         dashboardCell.ownerName.text = presenter?.OwnerNameAtIndex(index: indexPath.row)
-        dashboardCell.downloadImage(imageURL: presenter?.imageURLAtIndex(index: indexPath.row) ?? "")
-//        presenter?.fetchNames(at: indexPath.row)
+        if let url = presenter?.imageURLAtIndex(index: indexPath.row) {
+            dashboardCell.downloadImage(imageURL: url)
+        }
         return dashboardCell
 
     }
