@@ -10,27 +10,33 @@ import UIKit
 
 protocol DashboardDelegate {
     func isLoading(flag: Bool)
-    func fillUIWithData(data: [RepositoryModel])
+    func fillUIWithData()
 }
 class DashboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var loadingIndicator = UIActivityIndicatorView()
-    var dataModel: [RepositoryModel]?
     var presenter: DashboardPresenter?
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: "DashboardTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "DashboardTableViewCell")
-        loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-25, y: (view.frame.height/2)-25 , width: 50, height: 50))
+        registerCell()
+        setupLoadingIndicator()
         presenter = DashboardPresenter(viewController: self)
         presenter?.fetchDataService()
+    }
+
+    func registerCell() {
+        let nib = UINib(nibName: "DashboardTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "DashboardTableViewCell")
+    }
+
+    func setupLoadingIndicator() {
+        loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-25, y: (view.frame.height/2)-25 , width: 50, height: 50))
         view.addSubview(loadingIndicator)
     }
 }
 
 extension DashboardViewController: DashboardDelegate {
-    func fillUIWithData(data: [RepositoryModel]) {
-        dataModel = data
+    func fillUIWithData() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -49,7 +55,7 @@ extension DashboardViewController: DashboardDelegate {
 }
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataModel?.count ?? 0
+        return presenter?.numberOfDataSource() ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,9 +63,9 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         guard let dashboardCell = cell as? DashboardTableViewCell else {
             return cell
         }
-        dashboardCell.repoName.text = dataModel?[indexPath.row].name
-        dashboardCell.ownerName.text = dataModel?[indexPath.row].owner.onwerName
-        dashboardCell.downloadImage(imageURL: dataModel?[indexPath.row].owner.avatarImageURL ?? "")
+        dashboardCell.repoName.text = presenter?.repoNameAtIndex(index: indexPath.row)
+        dashboardCell.ownerName.text = presenter?.OwnerNameAtIndex(index: indexPath.row)
+        dashboardCell.downloadImage(imageURL: presenter?.imageURLAtIndex(index: indexPath.row) ?? "")
         return dashboardCell
 
     }

@@ -11,6 +11,7 @@ import Foundation
 class DashboardPresenter {
     
     var delegate: DashboardDelegate
+    private var dataModel: [RepositoryModel]?
     init(viewController: DashboardDelegate) {
         delegate = viewController
     }
@@ -20,10 +21,25 @@ class DashboardPresenter {
     func fetchDataService() {
         delegate.isLoading(flag: true)
         request.fetchRequest { [weak self] (model) in
-            let data = model as! [RepositoryModel]
-            
+            self?.dataModel = model as? [RepositoryModel]
             self?.delegate.isLoading(flag: false)
-            self?.delegate.fillUIWithData(data: data)
+            self?.delegate.fillUIWithData()
         }
+    }
+
+    func numberOfDataSource() -> Int {
+        return dataModel?.count ?? 0
+    }
+
+    func repoNameAtIndex(index: Int) -> String{
+        return dataModel?[index].name ?? ""
+    }
+
+    func OwnerNameAtIndex(index: Int) -> String{
+        return dataModel?[index].owner.onwerName ?? ""
+    }
+
+    func imageURLAtIndex(index: Int) -> String{
+        return dataModel?[index].owner.avatarImageURL ?? ""
     }
 }
