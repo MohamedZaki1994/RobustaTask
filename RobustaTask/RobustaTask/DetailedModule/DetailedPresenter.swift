@@ -13,14 +13,9 @@ class DetailedPresenter {
     var delegate: DetailedDelegate?
     var repo: RepositoryModel?
 
-    func repoDetails() {
-
-    }
-
     func fetchData() {
         self.delegate?.updateUI()
     }
-
 
     func repoName() -> String {
         return repo?.name ?? ""

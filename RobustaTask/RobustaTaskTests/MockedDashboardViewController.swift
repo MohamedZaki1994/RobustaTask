@@ -14,6 +14,7 @@ class MockedDashboardViewController: DashboardDelegate {
     var reloadRowCalled = false
     var loadMoreCalled = false
     var reloadTableViewCalled = false
+    var isErrorCalled = false
     func isLoading(flag: Bool) {
         isLoading = flag ? true : false
     }
@@ -32,6 +33,10 @@ class MockedDashboardViewController: DashboardDelegate {
 
     func reloadTableView() {
         reloadTableViewCalled = true
+    }
+
+    func showErrorPopup() {
+        isErrorCalled = true
     }
 
 }

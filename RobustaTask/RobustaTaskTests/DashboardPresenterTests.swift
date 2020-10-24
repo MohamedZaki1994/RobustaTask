@@ -60,4 +60,11 @@ class DashboardPresenterTests: XCTestCase {
         let ownerName = sut.ownerNameAtIndex(index: 0)
         XCTAssertEqual(ownerName, "owner name")
     }
+
+    func testShowErrorCalledIfErrorfromService() {
+        mockedDashboardViewController.isErrorCalled = false
+        mockedService.error = NSError(domain: "", code: 400, userInfo: nil)
+        sut.fetchDataService()
+        XCTAssertTrue(mockedDashboardViewController.isErrorCalled)
+    }
 }

@@ -10,7 +10,7 @@
 
 @implementation RequestHandler
 
-- (void) fetchRequest:(void (^)(NSArray* model, NSError *error))completion {
+- (void) fetchRequest:(void (^)(NSArray* model, NSError * _Nullable error))completion {
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://api.github.com/repositories"]];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request

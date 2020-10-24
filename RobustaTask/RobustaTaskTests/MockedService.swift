@@ -10,14 +10,16 @@ import Foundation
 import RobustaTask
 
 class MockedService: NSObject, RequestProtocol {
-    func fetchRequest(_ completion: @escaping ([Any]) -> Void) {
+
+    var error: NSError?
+    func fetchRequest(_ completion: @escaping ([Any], Error?) -> Void) {
         let repoModel = RepositoryModel()
         let repoModelWithEmptyName = RepositoryModel()
         repoModel.name = "repo name"
         repoModel.owner = OwnerModel()
         repoModel.owner.ownerName = "owner name"
         let mockedData = [repoModel,repoModelWithEmptyName,repoModel,repoModel,repoModel,repoModel,repoModel,repoModel,repoModel,repoModel,repoModel]
-        completion(mockedData)
+        completion(mockedData, error)
     }
 
     func fetchDetailsRequest(_ url: String, completion: @escaping (OwnerModel) -> Void) {
@@ -25,6 +27,4 @@ class MockedService: NSObject, RequestProtocol {
         ownerModel.ownerName = "testName"
         completion(ownerModel)
     }
-
-
 }
