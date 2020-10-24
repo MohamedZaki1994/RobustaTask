@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import RobustaTask
+import RobustaTask
 
 class MockedService: NSObject, RequestProtocol {
     func fetchRequest(_ completion: @escaping ([Any]) -> Void) {

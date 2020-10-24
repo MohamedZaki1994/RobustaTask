@@ -23,7 +23,6 @@
 		356F6B032541C9CB00A31D39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 356F6B022541C9CB00A31D39 /* Assets.xcassets */; };
 		356F6B062541C9CB00A31D39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356F6B042541C9CB00A31D39 /* LaunchScreen.storyboard */; };
 		356F6B092541C9CB00A31D39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 356F6B082541C9CB00A31D39 /* main.m */; };
-		356F6B132541C9CB00A31D39 /* RobustaTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 356F6B122541C9CB00A31D39 /* RobustaTaskTests.m */; };
 		356F6B1F2541C9F500A31D39 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356F6B1E2541C9F500A31D39 /* DashboardViewController.swift */; };
 		359C8D8C2541CB3200F1624F /* RequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C8D8B2541CB3200F1624F /* RequestHandler.m */; };
 		359C8D922541D6A000F1624F /* RepositoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C8D912541D6A000F1624F /* RepositoryModel.m */; };
@@ -52,7 +51,6 @@
 		3536ADA62541E60100E8165F /* OwnerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwnerModel.h; sourceTree = "<group>"; };
 		3536ADA72541E60100E8165F /* OwnerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OwnerModel.m; sourceTree = "<group>"; };
 		35372A5E2544272F00F246E6 /* RequestProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestProtocol.h; sourceTree = "<group>"; };
-		35372A6125442A7900F246E6 /* RobustaTaskTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RobustaTaskTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		35372A6225442A7A00F246E6 /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
 		35372A6425442AFF00F246E6 /* MockedDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedDashboardViewController.swift; sourceTree = "<group>"; };
 		35372A6625442BFF00F246E6 /* MockedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedService.swift; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 		356F6B072541C9CB00A31D39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		356F6B082541C9CB00A31D39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		356F6B0E2541C9CB00A31D39 /* RobustaTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RobustaTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		356F6B122541C9CB00A31D39 /* RobustaTaskTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RobustaTaskTests.m; sourceTree = "<group>"; };
 		356F6B142541C9CB00A31D39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		356F6B1D2541C9F500A31D39 /* RobustaTask-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RobustaTask-Bridging-Header.h"; sourceTree = "<group>"; };
 		356F6B1E2541C9F500A31D39 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -177,10 +174,8 @@
 		356F6B112541C9CB00A31D39 /* RobustaTaskTests */ = {
 			isa = PBXGroup;
 			children = (
-				356F6B122541C9CB00A31D39 /* RobustaTaskTests.m */,
 				356F6B142541C9CB00A31D39 /* Info.plist */,
 				35372A6225442A7A00F246E6 /* DashboardPresenterTests.swift */,
-				35372A6125442A7900F246E6 /* RobustaTaskTests-Bridging-Header.h */,
 				35372A6425442AFF00F246E6 /* MockedDashboardViewController.swift */,
 				35372A6625442BFF00F246E6 /* MockedService.swift */,
 			);
@@ -428,7 +423,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				35372A6525442AFF00F246E6 /* MockedDashboardViewController.swift in Sources */,
-				356F6B132541C9CB00A31D39 /* RobustaTaskTests.m in Sources */,
 				35372A6725442BFF00F246E6 /* MockedService.swift in Sources */,
 				35372A6325442A7A00F246E6 /* DashboardPresenterTests.swift in Sources */,
 			);
@@ -635,7 +629,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Zaki.RobustaTaskTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RobustaTaskTests/RobustaTaskTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -661,7 +655,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Zaki.RobustaTaskTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RobustaTaskTests/RobustaTaskTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RobustaTask.app/RobustaTask";
