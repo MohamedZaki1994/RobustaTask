@@ -16,6 +16,7 @@
 		35372A6325442A7A00F246E6 /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35372A6225442A7A00F246E6 /* DashboardPresenterTests.swift */; };
 		35372A6525442AFF00F246E6 /* MockedDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35372A6425442AFF00F246E6 /* MockedDashboardViewController.swift */; };
 		35372A6725442BFF00F246E6 /* MockedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35372A6625442BFF00F246E6 /* MockedService.swift */; };
+		35372A692544428F00F246E6 /* UIViewController+GradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35372A682544428F00F246E6 /* UIViewController+GradientLayer.swift */; };
 		356F6AF52541C9CA00A31D39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 356F6AF42541C9CA00A31D39 /* AppDelegate.m */; };
 		356F6AF82541C9CA00A31D39 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 356F6AF72541C9CA00A31D39 /* SceneDelegate.m */; };
 		356F6AFE2541C9CA00A31D39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356F6AFC2541C9CA00A31D39 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		35372A6225442A7A00F246E6 /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
 		35372A6425442AFF00F246E6 /* MockedDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedDashboardViewController.swift; sourceTree = "<group>"; };
 		35372A6625442BFF00F246E6 /* MockedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedService.swift; sourceTree = "<group>"; };
+		35372A682544428F00F246E6 /* UIViewController+GradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+GradientLayer.swift"; sourceTree = "<group>"; };
 		356F6AF02541C9CA00A31D39 /* RobustaTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobustaTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		356F6AF32541C9CA00A31D39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		356F6AF42541C9CA00A31D39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				356F6B072541C9CB00A31D39 /* Info.plist */,
 				356F6AFF2541C9CA00A31D39 /* RobustaTask.xcdatamodeld */,
 				35318E6F2542F01600947751 /* NavigationManager.swift */,
+				35372A682544428F00F246E6 /* UIViewController+GradientLayer.swift */,
 			);
 			path = RobustaTask;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				356F6AF82541C9CA00A31D39 /* SceneDelegate.m in Sources */,
 				359C8D952541DFE400F1624F /* DashboardPresenter.swift in Sources */,
 				359C8D922541D6A000F1624F /* RepositoryModel.m in Sources */,
+				35372A692544428F00F246E6 /* UIViewController+GradientLayer.swift in Sources */,
 				356F6B012541C9CA00A31D39 /* RobustaTask.xcdatamodeld in Sources */,
 				35318E702542F01600947751 /* NavigationManager.swift in Sources */,
 				359C8D8C2541CB3200F1624F /* RequestHandler.m in Sources */,

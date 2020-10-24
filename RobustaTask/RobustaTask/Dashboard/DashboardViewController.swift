@@ -23,10 +23,18 @@ class DashboardViewController: UIViewController {
     var isLoadingMore = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupGradientLayer()
+
+        navigationController?.setNavigationBarHidden(true, animated: false)
         registerCell()
         setupLoadingIndicator()
         presenter = DashboardPresenter(viewController: self)
         presenter?.fetchDataService()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     func registerCell() {
