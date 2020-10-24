@@ -10,15 +10,17 @@
 
 @implementation RequestHandler
 
-- (void) fetchRequest:(void (^)(NSArray*))completion {
-    NSURL *URL = [NSURL URLWithString:@"https://api.github.com/repositories"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-
+- (void) fetchRequest:(void (^)(NSArray* model, NSError *error))completion {
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://api.github.com/repositories"]];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
                                             completionHandler:
         ^(NSData *data, NSURLResponse *response, NSError *error) {
-            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        if (error) {
+            completion(nil,error);
+            return;
+        }
+        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         NSMutableArray *repos = [NSMutableArray new];
         for (NSDictionary *item in jsonDict) {
             RepositoryModel *model = [RepositoryModel new];
@@ -29,16 +31,14 @@
             model.owner.url = item[@"owner"][@"url"];
             [repos addObject:model];
         }
-        completion(repos);
+        completion(repos,nil);
         }];
 
     [task resume];
 }
 
 - (void) fetchDetailsRequest:(NSString*)url completion: (void (^)(OwnerModel*))completion {
-    NSURL *URL = [NSURL URLWithString:url];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
                                             completionHandler:

@@ -23,7 +23,10 @@ class DashboardPresenter {
     
     func fetchDataService() {
         delegate.isLoading(flag: true)
-        request?.fetchRequest { [weak self] (model) in
+        request?.fetchRequest { [weak self] (model, error)  in
+            if error != nil {
+                self?.delegate.showErrorPopup()
+            } else {
             self?.dataModel = model as? [RepositoryModel]
             if self?.dataModel?.count ?? 0 >= 10 {
                 if let sub = self?.dataModel?[0...9] {
@@ -35,7 +38,7 @@ class DashboardPresenter {
 
             self?.delegate.isLoading(flag: false)
             self?.delegate.fillUI()
-
+            }
         }
     }
 

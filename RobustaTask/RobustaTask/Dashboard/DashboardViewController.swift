@@ -14,6 +14,7 @@ protocol DashboardDelegate {
     func reloadRow(index: Int)
     func loadMore(flag: Bool)
     func reloadTableView()
+    func showErrorPopup()
 }
 class DashboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -83,11 +84,23 @@ extension DashboardViewController: DashboardDelegate {
             self.tableView.reloadRows(at: [indexpath], with: .none)
         }
     }
+
     func loadMore(flag: Bool) {
         if flag {
             loadingMoreIndicator.startAnimating()
         } else {
             loadingMoreIndicator.stopAnimating()
+        }
+    }
+
+    func showErrorPopup() {
+        let alert = UIAlertController(title: "Alert", message: "Error while reading data", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Reload", style: .default, handler: { action in
+            self.presenter?.fetchDataService()
+        }))
+        DispatchQueue.main.async {
+        self.present(alert, animated: true, completion: nil)
+            self.loadingIndicator.stopAnimating()
         }
     }
 

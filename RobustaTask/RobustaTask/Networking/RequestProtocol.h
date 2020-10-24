@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol RequestProtocol <NSObject>
-- (void)fetchRequest: (void (^)(NSArray*))completion;
+- (void)fetchRequest: (void (^)(NSArray* model, NSError *error))completion;
 - (void) fetchDetailsRequest:(NSString*)url completion: (void (^)(OwnerModel*))completion;
 
 @end
