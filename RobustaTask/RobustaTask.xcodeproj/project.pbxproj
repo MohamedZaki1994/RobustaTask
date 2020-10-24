@@ -48,6 +48,7 @@
 		3536ADA32541E19E00E8165F /* DashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTableViewCell.xib; sourceTree = "<group>"; };
 		3536ADA62541E60100E8165F /* OwnerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwnerModel.h; sourceTree = "<group>"; };
 		3536ADA72541E60100E8165F /* OwnerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OwnerModel.m; sourceTree = "<group>"; };
+		35372A5E2544272F00F246E6 /* RequestProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestProtocol.h; sourceTree = "<group>"; };
 		356F6AF02541C9CA00A31D39 /* RobustaTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobustaTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		356F6AF32541C9CA00A31D39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		356F6AF42541C9CA00A31D39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -180,6 +181,7 @@
 			children = (
 				359C8D8A2541CB3200F1624F /* RequestHandler.h */,
 				359C8D8B2541CB3200F1624F /* RequestHandler.m */,
+				35372A5E2544272F00F246E6 /* RequestProtocol.h */,
 			);
 			path = Networking;
 			sourceTree = "<group>";

@@ -56,7 +56,6 @@ extension DashboardViewController: DashboardDelegate {
         self.tableView.beginUpdates()
         self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: UITableView.RowAnimation.none)
         self.tableView.endUpdates()
-        UIView.setAnimationsEnabled(true)
         self.isLoadingMore = true
     }
 
@@ -105,6 +104,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UIView.setAnimationsEnabled(true)
         presenter?.goToDetaieldScreen(with: indexPath.row)
     }
 

@@ -14,15 +14,16 @@ class DashboardPresenter {
     private var dataModel: [RepositoryModel]?
     private var originalDataModel: [RepositoryModel]?
     var offset = 0
-    init(viewController: DashboardDelegate) {
+    var request: RequestProtocol?
+    init(viewController: DashboardDelegate, request: RequestProtocol = RequestHandler()) {
+        self.request = request
         delegate = viewController
     }
-    
-    let request = RequestHandler()
+
     
     func fetchDataService() {
         delegate.isLoading(flag: true)
-        request.fetchRequest { [weak self] (model) in
+        request?.fetchRequest { [weak self] (model) in
             self?.dataModel = model as? [RepositoryModel]
             if let sub = self?.dataModel?[0...9] {
                 self?.originalDataModel = Array(sub)
@@ -49,9 +50,8 @@ class DashboardPresenter {
     func fetchNames(at index: Int) {
         if originalDataModel?[index].owner.ownerName.isEmpty ?? false {
             guard let url = originalDataModel?[index].owner.url else {return}
-            request.fetchDetailsRequest(url) { [weak self](model) in
+            request?.fetchDetailsRequest(url) { [weak self](model) in
                 self?.originalDataModel?[index].owner = model
-//                self?.originalDataModel?[index].owner.onwerName = dic["name"] as? String ?? "Unkown"
                 self?.delegate.reloadRow(index: index)
             }
         }
