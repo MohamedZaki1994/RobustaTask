@@ -25,18 +25,22 @@ class DashboardPresenter {
         delegate.isLoading(flag: true)
         request?.fetchRequest { [weak self] (model) in
             self?.dataModel = model as? [RepositoryModel]
-            if let sub = self?.dataModel?[0...9] {
-                self?.originalDataModel = Array(sub)
+            if self?.dataModel?.count ?? 0 >= 10 {
+                if let sub = self?.dataModel?[0...9] {
+                    self?.originalDataModel = Array(sub)
+                }
+            } else {
+                self?.originalDataModel = self?.dataModel
             }
 
             self?.delegate.isLoading(flag: false)
-            self?.delegate.fillUIWithData()
+            self?.delegate.fillUI()
 
         }
     }
 
     func loadMore() {
-        guard self.offset != 100 else {return}
+        guard self.offset != 100 || dataModel?.count ?? 0 <= 10 else {return}
         delegate.loadMore(flag: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             guard let dataModel = self.dataModel?[self.offset..<(self.offset+10)] else {return}
@@ -65,12 +69,8 @@ class DashboardPresenter {
         return originalDataModel?[index].name ?? ""
     }
 
-    func OwnerNameAtIndex(index: Int) -> String{
-
-        if let ownerName = originalDataModel?[index].owner.ownerName {
-            return ownerName
-        }
-        return "Unkown"
+    func ownerNameAtIndex(index: Int) -> String{
+        return originalDataModel?[index].owner.ownerName ?? ""
     }
 
     func imageURLAtIndex(index: Int) -> String{

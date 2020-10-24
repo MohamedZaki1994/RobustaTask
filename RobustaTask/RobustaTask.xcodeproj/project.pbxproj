@@ -13,6 +13,9 @@
 		3536ADA42541E19E00E8165F /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3536ADA22541E19E00E8165F /* DashboardTableViewCell.swift */; };
 		3536ADA52541E19E00E8165F /* DashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3536ADA32541E19E00E8165F /* DashboardTableViewCell.xib */; };
 		3536ADA82541E60100E8165F /* OwnerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3536ADA72541E60100E8165F /* OwnerModel.m */; };
+		35372A6325442A7A00F246E6 /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35372A6225442A7A00F246E6 /* DashboardPresenterTests.swift */; };
+		35372A6525442AFF00F246E6 /* MockedDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35372A6425442AFF00F246E6 /* MockedDashboardViewController.swift */; };
+		35372A6725442BFF00F246E6 /* MockedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35372A6625442BFF00F246E6 /* MockedService.swift */; };
 		356F6AF52541C9CA00A31D39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 356F6AF42541C9CA00A31D39 /* AppDelegate.m */; };
 		356F6AF82541C9CA00A31D39 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 356F6AF72541C9CA00A31D39 /* SceneDelegate.m */; };
 		356F6AFE2541C9CA00A31D39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356F6AFC2541C9CA00A31D39 /* Main.storyboard */; };
@@ -49,6 +52,10 @@
 		3536ADA62541E60100E8165F /* OwnerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwnerModel.h; sourceTree = "<group>"; };
 		3536ADA72541E60100E8165F /* OwnerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OwnerModel.m; sourceTree = "<group>"; };
 		35372A5E2544272F00F246E6 /* RequestProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestProtocol.h; sourceTree = "<group>"; };
+		35372A6125442A7900F246E6 /* RobustaTaskTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RobustaTaskTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		35372A6225442A7A00F246E6 /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
+		35372A6425442AFF00F246E6 /* MockedDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedDashboardViewController.swift; sourceTree = "<group>"; };
+		35372A6625442BFF00F246E6 /* MockedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedService.swift; sourceTree = "<group>"; };
 		356F6AF02541C9CA00A31D39 /* RobustaTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobustaTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		356F6AF32541C9CA00A31D39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		356F6AF42541C9CA00A31D39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -172,6 +179,10 @@
 			children = (
 				356F6B122541C9CB00A31D39 /* RobustaTaskTests.m */,
 				356F6B142541C9CB00A31D39 /* Info.plist */,
+				35372A6225442A7A00F246E6 /* DashboardPresenterTests.swift */,
+				35372A6125442A7900F246E6 /* RobustaTaskTests-Bridging-Header.h */,
+				35372A6425442AFF00F246E6 /* MockedDashboardViewController.swift */,
+				35372A6625442BFF00F246E6 /* MockedService.swift */,
 			);
 			path = RobustaTaskTests;
 			sourceTree = "<group>";
@@ -282,6 +293,7 @@
 					};
 					356F6B0D2541C9CB00A31D39 = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 						TestTargetID = 356F6AEF2541C9CA00A31D39;
 					};
 				};
@@ -415,7 +427,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35372A6525442AFF00F246E6 /* MockedDashboardViewController.swift in Sources */,
 				356F6B132541C9CB00A31D39 /* RobustaTaskTests.m in Sources */,
+				35372A6725442BFF00F246E6 /* MockedService.swift in Sources */,
+				35372A6325442A7A00F246E6 /* DashboardPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +623,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8S49K8U3C3;
 				INFOPLIST_FILE = RobustaTaskTests/Info.plist;
@@ -619,6 +635,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Zaki.RobustaTaskTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RobustaTaskTests/RobustaTaskTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RobustaTask.app/RobustaTask";
 			};
@@ -630,6 +649,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8S49K8U3C3;
 				INFOPLIST_FILE = RobustaTaskTests/Info.plist;
@@ -641,6 +661,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Zaki.RobustaTaskTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RobustaTaskTests/RobustaTaskTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RobustaTask.app/RobustaTask";
 			};

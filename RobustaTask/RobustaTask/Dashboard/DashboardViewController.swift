@@ -10,7 +10,7 @@ import UIKit
 
 protocol DashboardDelegate {
     func isLoading(flag: Bool)
-    func fillUIWithData()
+    func fillUI()
     func reloadRow(index: Int)
     func loadMore(flag: Bool)
     func reloadTableView()
@@ -44,7 +44,7 @@ class DashboardViewController: UIViewController {
 }
 
 extension DashboardViewController: DashboardDelegate {
-    func fillUIWithData() {
+    func fillUI() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
             self.isLoadingMore = true
@@ -95,7 +95,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         dashboardCell.repoName.text = presenter?.repoNameAtIndex(index: indexPath.row)
-        dashboardCell.ownerName.text = presenter?.OwnerNameAtIndex(index: indexPath.row)
+        dashboardCell.ownerName.text = presenter?.ownerNameAtIndex(index: indexPath.row)
         if let url = presenter?.imageURLAtIndex(index: indexPath.row) {
             dashboardCell.downloadImage(imageURL: url)
         }
