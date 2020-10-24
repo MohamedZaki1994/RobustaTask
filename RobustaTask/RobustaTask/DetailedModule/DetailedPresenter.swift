@@ -18,9 +18,30 @@ class DetailedPresenter {
     }
 
     func fetchData() {
-        let request = RequestHandler()
-//        request.fetchDetailsRequest(repo?.owner.url ?? "") { [weak self](_) in
-            self.delegate?.updateUI()
-//        }
+        self.delegate?.updateUI()
+    }
+
+
+    func repoName() -> String {
+        return repo?.name ?? ""
+    }
+    func onwerName() -> String {
+        return repo?.owner.ownerName ?? ""
+    }
+
+    func getCity() -> String{
+        return repo?.owner.location ?? ""
+    }
+
+    func getNumberOfFollowers() -> String {
+        return repo?.owner.followers ?? ""
+    }
+
+    func getNumberOfFollowing() -> String {
+        return repo?.owner.following ?? ""
+    }
+
+    func getNumberOfPublicRepos() -> String {
+        return repo?.owner.numberOfRepos ?? ""
     }
 }

@@ -16,8 +16,11 @@ class DetailedViewController: UIViewController {
 
     @IBOutlet weak var repoName: UILabel!
     @IBOutlet weak var ownerName: UILabel!
+    @IBOutlet weak var city: UILabel!
     @IBOutlet weak var desc: UILabel!
-    
+    @IBOutlet weak var numberOfFollowers: UILabel!
+    @IBOutlet weak var numberOfFollowing: UILabel!
+    @IBOutlet weak var publicRepos: UILabel!
     @IBOutlet weak var ownerImage: UIImageView!
     var presenter: DetailedPresenter?
     override func viewDidLoad() {
@@ -36,8 +39,12 @@ class DetailedViewController: UIViewController {
 extension DetailedViewController: DetailedDelegate {
     func updateUI() {
         DispatchQueue.main.async { [weak self] in
-            self?.repoName.text = self?.presenter?.repo?.name
-            self?.ownerName.text = self?.presenter?.repo?.owner.ownerName
+            self?.repoName.text = self?.presenter?.repoName()
+            self?.ownerName.text = self?.presenter?.onwerName()
+            self?.city.text = self?.presenter?.getCity()
+            self?.numberOfFollowers.text = self?.presenter?.getNumberOfFollowers()
+            self?.numberOfFollowing.text = self?.presenter?.getNumberOfFollowing()
+            self?.publicRepos.text = self?.presenter?.getNumberOfPublicRepos()
             self?.desc.text = self?.presenter?.repo?.desc
             if let url = self?.presenter?.repo?.owner.avatarImageURL {
                 self?.downloadImage(imageURL: url)

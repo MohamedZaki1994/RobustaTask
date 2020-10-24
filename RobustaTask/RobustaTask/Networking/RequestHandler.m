@@ -52,12 +52,36 @@
         } else {
             owner.ownerName = jsonDict[@"name"];
         }
-        owner.location = jsonDict[@"location"];
-        owner.createdDate = jsonDict[@"created_at"];
-        owner.followers = jsonDict[@"followers"];
-        owner.following = jsonDict[@"following"];
-        owner.numberOfRepos = jsonDict[@"public_repos"];
-        owner.avatarImageURL = jsonDict[@"avatar_url"];
+        if ([jsonDict objectForKey:@"location"] == (id)[NSNull null]) {
+            owner.location = @"Unkown";
+        } else {
+            owner.location = jsonDict[@"location"];
+        }
+        if ([jsonDict objectForKey:@"created_at"] == (id)[NSNull null]) {
+            owner.createdDate = @"Unkown";
+        } else {
+            owner.createdDate = jsonDict[@"created_at"];
+        }
+        if ([jsonDict objectForKey:@"followers"] == (id)[NSNull null]) {
+            owner.followers = @"Unkown";
+        } else {
+            owner.followers = [NSString stringWithFormat:@"%@",jsonDict[@"followers"]];
+        }
+        if ([jsonDict objectForKey:@"following"] == (id)[NSNull null]) {
+            owner.following = @"Unkown";
+        } else {
+            owner.following = [NSString stringWithFormat:@"%@",jsonDict[@"following"]];
+        }
+        if ([jsonDict objectForKey:@"public_repos"] == (id)[NSNull null]) {
+            owner.numberOfRepos = @"Unkown";
+        } else {
+            owner.numberOfRepos = [NSString stringWithFormat:@"%@",jsonDict[@"public_repos"]];
+        }
+        if ([jsonDict objectForKey:@"avatar_url"] == (id)[NSNull null]) {
+            owner.avatarImageURL = @"Unkown";
+        } else {
+            owner.avatarImageURL = jsonDict[@"avatar_url"];
+        }
         completion(owner);
         }];
 
